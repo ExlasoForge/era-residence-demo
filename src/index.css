@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "./styles/era.css";
+
+@layer base {
+  :root {
+    --base-0: #f3f3ec;
+    --base-1000: #17233b;
+    --brand-plum: #340c24;
+    --brand-powder: #b5cedb;
+    --brand-blush: #f8bbcb;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--base-0);
+    color: var(--base-1000);
+    overflow-x: hidden;
+  }
+}
+
+.font-display {
+  font-family: 'Noto Serif Display', 'Bodoni Moda', Georgia, serif;
+  font-stretch: 62.5%;
+}
+
+.font-accent {
+  font-family: 'Italianno', 'Playfair Display', cursive;
+}
+
+.font-sans-wide {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* Luxury button roll animation */
+.hover-roll {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.3em;
+  overflow: hidden;
+  position: relative;
+}
+
+.hover-roll-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.group:hover .hover-roll-inner {
+  transform: translateY(-50%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f3ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #17233b33;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #17233b66;
+}
+
+/* Rotating circular text animation */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 24s linear infinite;
+}
+
+/* Marquee track animation */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
